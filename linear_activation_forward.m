@@ -8,5 +8,8 @@ elseif activation == "relu"
     [A, activation_cache]=relu(Z);
 end
 
-% assert(size(A)==[size(W,1) size(A_prev,2)])
+assert1 = isequal(size(A),[size(W,1) size(A_prev,2)]);
+if assert1 == 0
+    error('Error of dimensions on linear_activation_forward')
+end
 cache={linear_cache activation_cache};

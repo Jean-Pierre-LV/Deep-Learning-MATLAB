@@ -1,7 +1,7 @@
 function [AL,caches]=L_model_forward(X,parameters)
 
     caches = {};
-    A = X';
+    A = X;
     L = fix(length(fieldnames(parameters))/2);
     
     for l=1:L-1
@@ -10,7 +10,6 @@ function [AL,caches]=L_model_forward(X,parameters)
                                                parameters.('W'+string(l)), ...
                                                parameters.('b'+string(l)), ...
                                                'relu');%activation
-    %caches.append(cache)
     caches=[caches cache];
     end
     
@@ -18,7 +17,9 @@ function [AL,caches]=L_model_forward(X,parameters)
                                            parameters.('W'+string(L)), ...
                                            parameters.('b'+string(L)), ...
                                            'sigmoid');%activation
-%     caches.append(cache)
     caches={caches cache};
-%     assert(size(AL)==[1 size(X,2)])
+    assert1 = isequal(size(AL),[1 size(X,2)]);
+    if assert1 == 0
+        error('Error of dimensions on L_model_forward');
+    end
 end
