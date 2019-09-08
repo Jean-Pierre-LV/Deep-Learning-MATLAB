@@ -6,6 +6,8 @@ These functions were coding in MATLAB for users of this environment.
 The names of these functions explicitly represent the task for which it was programmed.  
 
 To follow the steps of the algorithm:
-\begin{itemize}
-\item 
-\end{îtemize}
+1) initialize_parameters_deep.m
+2) L_model_forward.m
+3) compute_cost.m
+4) L_model_backward.m
+5) update_parameters.m
